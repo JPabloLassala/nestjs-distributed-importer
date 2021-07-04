@@ -13,6 +13,7 @@ import { AppController } from 'src/application/controllers/app.controller';
       isGlobal: true,
       load: [databaseConfig, config],
     }),
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
