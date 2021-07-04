@@ -1,7 +1,9 @@
-import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import configuration from '../config/configuration';
+import { Module } from '@nestjs/common';
+import config from '../config/config';
 import { AppService } from '../services/app.service';
+import databaseConfig from '../config/database.config';
+import { HealthModule } from 'src/domain/modules/health.module';
 import { AppController } from 'src/application/controllers/app.controller';
 
 @Module({
@@ -9,7 +11,7 @@ import { AppController } from 'src/application/controllers/app.controller';
     ConfigModule.forRoot({
       envFilePath: ['.env.local', '.env'],
       isGlobal: true,
-      load: [configuration],
+      load: [databaseConfig, config],
     }),
   ],
   controllers: [AppController],

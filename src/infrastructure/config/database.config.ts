@@ -1,5 +1,6 @@
-export default () => ({
-  port: parseInt(process.env.NODE_PORT, 10) || 3000,
+import { registerAs } from '@nestjs/config';
+
+export default registerAs('db', () => ({
   databases: {
     mongo: {
       host: process.env.MONGO_HOST,
@@ -10,4 +11,4 @@ export default () => ({
       port: parseInt(process.env.SQL_PORT, 10) || 3306,
     },
   },
-});
+}));
