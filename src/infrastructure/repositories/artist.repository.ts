@@ -4,7 +4,7 @@ import { InjectModel } from 'nest-knexjs';
 import { Artist } from 'src/domain/interfaces';
 
 @Injectable()
-export class ArtistsRepository {
+export class ArtistRepository {
   constructor(@InjectModel() private readonly knex: Knex) {}
 
   getBaseQuery(): Knex.QueryBuilder {
