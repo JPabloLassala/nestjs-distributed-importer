@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { KnexModule } from 'nest-knexjs';
 import { AppController } from 'src/application/controllers/app.controller';
-import { ArtistsModule } from 'src/domain/modules/artists.module';
-import { HealthModule } from 'src/domain/modules/health.module';
+import { AlbumModule, ArtistModule, HealthModule } from 'src/domain/modules';
 import config from '../config/config';
 import databaseConfig from '../config/database.config';
 import { AppService } from '../services/app.service';
@@ -11,7 +10,8 @@ import { AppService } from '../services/app.service';
 @Module({
   imports: [
     HealthModule,
-    ArtistsModule,
+    ArtistModule,
+    AlbumModule,
     KnexModule.forRoot({
       config: {
         client: 'sqlite3',
