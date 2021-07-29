@@ -44,20 +44,20 @@ describe('AlbumService', () => {
       expect(albumsResult).toEqual(albums);
     });
 
-    it('Should return al albums from artist');
+    it('Should return al albums from artist', () => {});
 
-    it('Should return an album songs');
+    it('Should return an album songs', () => {});
 
-    it('Should return all employees');
+    it('Should return all employees', () => {});
 
-    it('Should return genres in band');
+    it('Should return genres in band', () => {});
 
-    it('Should return all playlists');
+    it('Should return all playlists', () => {});
 
-    it('Should return playlist songs');
+    it('Should return playlist songs', () => {});
 
-    it('Should list all invoices');
+    it('Should list all invoices', () => {});
 
-    it('Should list all invoices from a customer');
+    it('Should list all invoices from a customer', () => {});
   });
 });
