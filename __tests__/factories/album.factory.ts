@@ -7,7 +7,7 @@ export const getFakeAlbum = (
   id = null,
   artist: Artist | null = null,
 ): Album => ({
-  id: id || datatype.number(),
+  id: id !== null ? id : datatype.number(),
   title: lorem.sentence(),
   artist: artist || null,
 });
