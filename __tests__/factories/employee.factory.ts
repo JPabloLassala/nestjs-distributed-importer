@@ -29,7 +29,7 @@ export const getFakeEmployeeArray = (length?: number): Employee[] => {
 
   return employeeArray.map((em, i): Employee => {
     if (i % 3 === 0) return { ...em, reportsTo: employeeArray[i + 1] };
-    if (i % 3 === 1) return { ...em, reportsTo = employeeArray[i + 1] };
+    if (i % 3 === 1) return { ...em, reportsTo: employeeArray[i + 1] };
     return em;
   });
 };
