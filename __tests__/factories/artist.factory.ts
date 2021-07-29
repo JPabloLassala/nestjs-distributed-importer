@@ -4,7 +4,7 @@ import * as fakerStatic from 'faker';
 const { datatype, commerce, vehicle } = fakerStatic;
 
 export const getFakeArtist = (id = null): Artist => ({
-  id: id || datatype.number(),
+  id: id !== null ? id : datatype.number(),
   name: `${commerce.productAdjective()} ${vehicle.vehicle()}`,
 });
 
