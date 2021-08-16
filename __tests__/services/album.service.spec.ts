@@ -9,14 +9,22 @@ import { getFakeArtistArray } from '__tests__/factories/artist.factory';
 describe('AlbumService', () => {
   let albums: Album[];
   let artists: Artist[];
+  let artist: Artist;
   let albumService: AlbumService;
 
   beforeAll(async () => {
     artists = getFakeArtistArray();
     albums = getFakeAlbumArray(artists);
+    artist = albums[0].artist;
 
     const AlbumRepositoryMock = {
       findAll: jest.fn(async () => Promise.resolve(albums)),
+      findAlbumsPerArtist: jest.fn(async (artist: Artist) => {
+        const albumsResult = albums.filter(
+          (album: Album) => album.artist?.id === artist.id,
+        );
+        return Promise.resolve(albumsResult);
+      }),
     };
 
     const moduleRef: TestingModule = await Test.createTestingModule({
@@ -44,20 +52,15 @@ describe('AlbumService', () => {
       expect(albumsResult).toEqual(albums);
     });
 
-    it('Should return al albums from artist', () => {});
+    it('Should return al albums from artist', async () => {
+      const albumsExpected = albums.filter(
+        (album: Album) => album.artist?.id === artist.id,
+      );
+      const albumsResult = await albumService.getAlbumsFromArtist(artist);
 
-    it('Should return an album songs', () => {});
+      expect(albumsResult).toEqual(albumsExpected);
+    });
 
-    it('Should return all employees', () => {});
-
-    it('Should return genres in band', () => {});
-
-    it('Should return all playlists', () => {});
-
-    it('Should return playlist songs', () => {});
-
-    it('Should list all invoices', () => {});
-
-    it('Should list all invoices from a customer', () => {});
+    it('Should return track album');
   });
 });

@@ -7,6 +7,7 @@ import { getFakeAlbumArray, getFakeArtistArray } from '__tests__/factories';
 
 describe('ArtistService', () => {
   let artists: Artist[];
+  let artist: Artist;
   let albums: Album[];
   let album: Album;
   let artistService: ArtistService;

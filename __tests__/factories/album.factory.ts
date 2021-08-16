@@ -16,8 +16,8 @@ export const getFakeAlbumArray = (
   artists: Artist[],
   length?: number,
 ): Album[] => {
-  const randomArtist = artists[datatype.number(artists.length)];
-  return [...new Array(length || 200)].map((row, i) =>
-    getFakeAlbum(i, randomArtist),
-  );
+  return [...new Array(length || 200)].map((row, i) => {
+    const randomArtist = artists[datatype.number(artists.length)];
+    return getFakeAlbum(i, randomArtist);
+  });
 };
